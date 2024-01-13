@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show all users</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Show all users</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>SERIAL NO.</th>
+          <th>ID</th>
+          <th>EMAIL</th>
+          <th>USERNAME</th>
+          <th>EDIT</th>
+          <th>DELTE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%for(user of users){%>
+        <tr>
+          <td><%=users.indexOf(user)+1%></td>
+          <td><%=user.id%></td>
+          <td><%=user.email%></td>
+          <td><%=user.username%></td>
+          <td>
+            <form method="get" action="/user/<%=user.id%>/edit">
+              <button>Edit username</button>
+            </form>
+          </td>
+          <td>
+            <form method="get" action="/user/<%=user.id%>/delete">
+              <button>Delete User</button>
+            </form>
+          </td>
+        </tr>
+        <%}%>
+      </tbody>
+    </table>
+  </body>
+</html>
